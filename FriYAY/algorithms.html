@@ -1,0 +1,65 @@
+<html>
+<body>
+<script>
+// Remove duplicates from this array [1,5,7,8,4,3,1,6,9,8,14]
+// Check to see if a word is a palindrome (if you reverse a word and it is the same word (mom, dad, bob, racecar, etc)
+// How can you find the minimum and maximum numbers in an array?
+// Return the length of the longest word in this sentence: “Those who can imagine anything, can create the impossible.”
+// (quote from Alan Turing)
+
+
+let numbers = ['1','5','7','8','4','3','1','6','9','8','14'];
+
+let numberList = numbers.filter((i, index) => {
+    return numbers.indexOf(i) === index;
+});
+
+console.log(numberList)
+
+
+// function isPalindrome(str) {
+//   var i,
+//     len = str.length;
+//   for (i = 0; i < len / 2; i++) {
+//     if (str[i] !== str[len - 1 - i]) return false;
+//   }
+//   return true;
+// }
+
+//     console.log(isPalindrome(“lady”))
+//     console.log(isPalindrome(“racecar”))
+
+
+
+const array = [35, -15, 49, 548, -9, 78];
+
+array.sort();
+array.sort((a, b) => a - b);
+
+const min = array[0];
+const max = array[array.length - 1];
+
+console.log(`Minimum: ${min}, Maximum: ${max}`); 
+
+
+
+function findLongestWord(str) {
+  let maxVal = 0;
+
+  const wordArr = str.split(" ");
+
+  for (let i = 0; i < wordArr.length; i++) {
+    let word = wordArr[i];
+    if (word.length > maxVal) {
+      maxVal = word.length;
+    }
+  }
+  return maxVal;
+}
+console.log(findLongestWord("Those who can imagine anything, can create the impossible ."))
+
+
+
+</script>
+</body>
+</html>
