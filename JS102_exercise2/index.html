@@ -13,16 +13,17 @@
     var ctx = document.getElementById('myChart').getContext('2d');
     var chart = new Chart(ctx, {
     // The type of chart we want to create
-    type: 'line',
+    type: 'bar',
+
 
     // The data for our dataset
     data: {
-        labels: ['Programmer', 'Teacher', 'March', 'April', 'May', 'June', 'July'],
+        labels: ['Programmer', 'Marketing Manager', 'HR Director', 'Sales Team Lead', 'IT Team Member'],
         datasets: [{
             label: 'Jobs',
             backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45]
+            borderColor:'rgb(122,255,220)',
+            data: [5, 10, 3, 7, 30]
         }]
     },
 
