@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // const request = new XMLHttpRequest();
+
+        // request.onreadystatechange =() => {
+        //     if(request.readyState === 4 && request.status ===200){
+        //         console.log(request.response)
+        //         // console.log(typeof(request.response)) it is a string
+        //         console.log(JSON.parse(request.response))
+
+        //         let names = JSON.parse(request.response)
+        //         let doc = document.querySelector("body")
+
+        //         names.forEach(name => {
+        //             let nameDom = document.createElement("div")
+        //             nameDom.innerHTML = name.name;
+        //             doc.append(nameDom)
+        //         });
+        //     }
+        // };
+        // //GET method is the same as doing opening a webpage (Http methods)
+        // request.open("GET", "./names.json")
+        // request.send();
+
+        const ajax = (url, callback) =>{
+            const request = new XMLHttpRequest();
+
+            request.onreadystatechange =() => {
+                if(request.readyState === 4 && request.status == 200){
+                    callback(request.response)
+                }
+            };
+            request.open("GET", url);
+
+            request.send();
+        }
+
+            ajax("./names.json", (resp)=>console.log(JSON.parse(resp)))
+            
+            const getPeople = (page = 1) =>{
+                ajax(`https://swapi.dev/api/people/?page=${page}`, response=>console.log(JSON.parse(response)))
+            }
+
+            getPeople()
+            getPeople(3)
+            getPeople(5)
+
+    </script>
+</body>
+</html>
